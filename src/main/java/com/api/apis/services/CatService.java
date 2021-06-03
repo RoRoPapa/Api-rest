@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class CatService {
 
-    private String basePath = "C:\\Users\\roo\\Documents\\DEVOPS\\back\\spring\\apis\\src\\main\\resources\\static\\img\\";
+    private String basePath = "src/main/resources/static/img/";
     final ApiUtils apiUtils;
 
     public CatService(ApiUtils apiUtils) {

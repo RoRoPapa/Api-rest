@@ -1,6 +1,8 @@
 package com.api.apis.controllers;
 
 import com.api.apis.services.CatService;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
+@Log4j2
 @RestController
 @RequestMapping(path = "/api/cat")
 public class CatController {
@@ -25,8 +28,10 @@ public class CatController {
 
     @GetMapping(value = "/img/{mod}", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<Resource> getCatImg(@PathVariable String mod) {
+        log.info("Get a image for:"+mod);
         try{
             ByteArrayResource imageBytes = catService.getImg(mod);
+            log.info("Get Success");
             return ResponseEntity.status(HttpStatus.OK).contentLength(imageBytes.contentLength()).body(imageBytes);
         }catch (Exception e){
             e.printStackTrace();

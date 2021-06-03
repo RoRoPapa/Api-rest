@@ -2,7 +2,7 @@ package com.api.apis.enums;
 
 public enum CatMod {
 
-    HAPPY("happy\\"), SAD("sad\\");
+    HAPPY("happy/"), SAD("sad/");
 
     private final String path;
 

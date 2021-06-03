@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,7 +29,7 @@ public class ApiUtils {
 
     public ByteArrayResource getImgResize(String path) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        Thumbnails.of(path).size(200, 200).outputFormat("jpg").toOutputStream(os);
+        Thumbnails.of(path).size(475, 500).outputFormat("jpg").toOutputStream(os);
         return new ByteArrayResource(os.toByteArray());
     }
 
