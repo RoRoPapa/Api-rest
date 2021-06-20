@@ -4,11 +4,33 @@ server:
 spring:
   application:
     name: api-rest
+  jmx:
+    enabled: true
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
+    register-with-eureka: false
+    enabled: false
   instance:
     hostname: localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  file:
+    name: '/home/roo/logs'
+  level:
+    root: WARN
+    org:
+      springframework:
+        web: INFO
+
